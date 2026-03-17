@@ -11,6 +11,7 @@ import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Transactions from "./pages/Transactions";
 import Transfer from "./pages/Transfer";
+import Deposit from "./pages/Deposit";
 import AuditorDashBoard from "./pages/AuditorDashBoard";
 import { CustomerRoute,AuditorRoute } from "./services/Guard";
 
@@ -34,6 +35,8 @@ function App() {
         <Route path="/transactions" element={<CustomerRoute element={<Transactions />}/>} />
         <Route path="/transfer" element={<CustomerRoute element={<Transfer />} />} />
         <Route path="/audit" element={<AuditorRoute element={<AuditorDashBoard />}/>} />
+        <Route path="/deposit" element={<AuditorRoute element={<Deposit />}/>} />
+
 
 
         <Route path="*" element={<NotFound />} />

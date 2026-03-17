@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { apiService } from "../services/api";
 
 const Deposit = () => {
@@ -39,10 +39,10 @@ const Deposit = () => {
                 setSuccess(`Account Found : ${account.accountType}  Account -${account.accountNumber}`);
                 fetchRecentTransactions();
             } else {
-                setError(response.data.message || "can'\t search right now");
+                setError(response.data.message || "can\'t search right now");
             }
         } catch (error) {
-            setError(error.response?.data?.message || "can'\t search right now");
+            setError(error.response.data?.message || `can\'t find this account` );
         } finally {
             setSearchLoading(false);
         }
@@ -96,12 +96,12 @@ const Deposit = () => {
             const depositData = {
                 transactionType: 'DEPOSIT',
                 amount: parseFloat(formData.amount),
-                accountNumber: formData.accountNumber,
+                accountNumber: formData.accountNumber.trim(),
             };
 
             const response = await apiService.makeDeposit(depositData);
 
-            if (response.data.statusCode === 200) {
+            if (response.data.StatusCode === 200) {
                 setSuccess(`Successfully deposited $${formData.amount} to account ${formData.accountNumber}`);
 
                 setFormData({
@@ -235,7 +235,7 @@ const Deposit = () => {
                             </div>
                         )}
                     </div>
-
+                    <br/>
                     <div className="guidelines-card">
                         <h3>Deposit Guidelines</h3>
                         <ul>

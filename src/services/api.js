@@ -111,7 +111,7 @@ export const apiService =
         return api.post('/transactions/create', transferData);
 
     },
-    makeTransfer: (depositData) => {
+    makeDeposit: (depositData) => {
         return api.post('/transactions/create', depositData);
 
     },

@@ -48,10 +48,14 @@ const NavBar = () => {
                                     <Link to={"/transactions"} className="navbar-link">Transactions</Link>
                                 </li>
                                 {(isAdmin || isAuditor) && (
-
-                                    <li className="navbar-item">
-                                        <Link to={"/audit"} className="navbar-link">Auditor Dashboard</Link>
-                                    </li>
+                                    <>
+                                        <li className="navbar-item">
+                                            <Link to={"/audit"} className="navbar-link">Auditor Dashboard</Link>
+                                        </li>
+                                        <li className="navbar-item">
+                                            <Link to={"/deposit"} className="navbar-link">Deposit</Link>
+                                        </li>
+                                    </>
                                 )}
                                 <li className="navbar-item">
                                     <button type="button" className="navbar-link logout-btn"

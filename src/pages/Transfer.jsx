@@ -56,7 +56,7 @@ const Transfer = () => {
         setError('');
         setSuccess('');
 
-        if (!formData.destinationAccount || !formData.amount) {
+        if (!formData.destinationAccount.trim() || !formData.amount) {
             setError('Please fill all required fields');
             setLoading(false);
             return;
@@ -67,7 +67,7 @@ const Transfer = () => {
             return;
         }
 
-        if (formData.destinationAccount === formData.sourceAccount) {
+        if (formData.destinationAccount.trim() === formData.sourceAccount) {
             setError('You can\'t transfer money to your self');
             setLoading(false);
             return;
@@ -77,7 +77,7 @@ const Transfer = () => {
                 transactionType: 'TRANSFER',
                 amount: parseFloat(formData.amount),
                 accountNumber: formData.sourceAccount,
-                destinationAccountNumber: formData.destinationAccount
+                destinationAccountNumber: formData.destinationAccount.trim()
             }
             const response = await apiService.makeTransfer(transferData);
             if (response.data.StatusCode === 200) {
