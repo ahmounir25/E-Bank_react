@@ -26,11 +26,11 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/reset-password"   element={<ResetPassword />} />
 
 
         <Route path="/profile" element={<CustomerRoute element={<Profile/>} />} />
         <Route path="/change-password" element={<CustomerRoute element={<UpdatePassword />} />} />
-        <Route path="/reset-password" element={<CustomerRoute  element={<ResetPassword />} />} />
         <Route path="/transactions" element={<CustomerRoute element={<Transactions />}/>} />
         <Route path="/transfer" element={<CustomerRoute element={<Transfer />} />} />
         <Route path="/audit" element={<AuditorRoute element={<AuditorDashBoard />}/>} />

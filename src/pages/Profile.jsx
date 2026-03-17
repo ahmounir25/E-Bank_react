@@ -121,13 +121,6 @@ const Profile = () => {
             </div>);
     }
 
-    // if (error) {
-    //     return (
-    //         <div className="profile-container">
-    //             <div className="error-message">{error}</div>
-    //         </div>);
-    // }
-
     if (!userData) {
         return (
             <div className="profile-container">
